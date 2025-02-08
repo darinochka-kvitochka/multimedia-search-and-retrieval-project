@@ -1,0 +1,137 @@
+:root {
+  /* Base styling */
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 14px; /* Main font size */
+
+  /* Light theme colors */
+  --color-text: #222222;
+  --color-background: #ffffff;
+  --color-primary: #005bbb; /* Accessible blue */
+  --color-primary-hover: #003e88; /* Darker blue for hover */
+  --color-accent: #ffaa00; /* Accessible orange for highlights */
+  --color-border: #dddddd;
+  --color-table-row-even: #f4f4f4;
+  --color-table-header: #eeeeee;
+
+  /* Dark theme colors */
+  --color-dark-text: #eeeeee;
+  --color-dark-background: #121212;
+  --color-dark-primary: #89c2d9;
+  --color-dark-primary-hover: #61a5c2;
+  --color-dark-accent: #ffc600;
+  --color-dark-border: #444444;
+
+  /* Transition for theme switching */
+  color-scheme: light dark;
+  transition: all 0.3s ease;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Adds consistent spacing between elements */
+  min-width: 320px;
+  max-height: 100vh;
+  overflow-y: auto; /* Allow vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  transition: color 0.3s, background-color 0.3s; /* Smooth theme transitions */
+}
+
+h1 {
+  font-size: 1.8em;
+  margin: 0;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+button {
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  padding: 0.6em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: var(--color-primary);
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-accent);
+}
+
+button:disabled {
+  background-color: #cccccc; /* Gray for disabled buttons */
+  color: #777777; /* Dimmed text for better contrast */
+  border-color: #bbbbbb;
+  cursor: not-allowed;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 3px solid var(--color-accent);
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+table {
+  border-collapse: collapse;
+  width: fit-content;
+  max-width: 96vw;
+  max-height: 600px;
+  border: 1px solid var(--color-border);
+  overflow-x: auto; /* Enable horizontal scrolling */
+  display: block; /* Ensures scrollbars are applied */
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-table-header);
+  color: var(--color-text);
+  font-weight: bold;
+  padding: 12px 8px;
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  z-index: 1;
+}
+
+th,
+td {
+  padding: 12px 8px;
+  text-align: left;
+}
+
+td {
+  border: 1px solid var(--color-border);
+}
+
+tr:nth-child(even) {
+  background-color: var(--color-table-row-even);
+}
+
+tr:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text); /* Ensures text is visible (black for light mode) */
+  transition: background-color 0.3s ease;
+}
+
+tr.selected:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text); /* Force text to black for visibility */
+  font-weight: bold; /* Optional to make selected rows more distinct */
+}
